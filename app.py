@@ -3,8 +3,8 @@ from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
 
-# Import database health check and connection utility
-from backend.db import check_db_health, get_db_connection
+# Import database health check, connection, and auto-initialization utility
+from backend.db import check_db_health, get_db_connection, init_db
 
 # Import routes
 from backend.routes.auth import auth_bp
@@ -13,6 +13,10 @@ from backend.routes.sessions import sessions_bp
 from backend.routes.analytics import analytics_bp
 from backend.routes.learning import learning_bp
 from backend.routes.recommendations import recommendations_bp
+
+import logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -48,6 +52,16 @@ app.register_blueprint(sessions_bp)
 app.register_blueprint(analytics_bp)
 app.register_blueprint(learning_bp)
 app.register_blueprint(recommendations_bp)
+
+# Automatically create all required MySQL tables on startup if they do not exist
+try:
+    init_res = init_db()
+    if init_res.get("status") == "success":
+        logger.info(f"Database auto-initialized successfully: {init_res.get('table_count')} tables verified in '{init_res.get('database_name')}'.")
+    else:
+        logger.warning(f"Database auto-initialization returned: {init_res.get('error')}")
+except Exception as e:
+    logger.error(f"Failed to auto-initialize database on startup: {e}")
 
 
 # Graceful error handlers to prevent exposing sensitive stack traces
@@ -98,7 +112,8 @@ def health_check():
         "database_connection": "connected" if is_db_connected else "disconnected",
         "database_name": db_health.get("database_name"),
         "tables": db_health.get("tables", []),
-        "table_count": db_health.get("table_count", 0)
+        "table_count": db_health.get("table_count", 0),
+        "database_initialized": db_health.get("table_count", 0) >= 10
     }
 
     if not is_db_connected:
