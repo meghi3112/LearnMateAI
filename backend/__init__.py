@@ -1,0 +1,3 @@
+"""
+LearnMate AI Backend Package
+"""

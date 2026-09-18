@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Preferences - LearnMate AI</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body style="background: radial-gradient(circle at 50% 0%, var(--lavender-100) 0%, var(--bg-app) 60%);">
+
+  <div class="pref-setup-container">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <a href="index.html" class="inline-flex items-center gap-2 mb-4" style="text-decoration: none; display: inline-flex;">
+        <div class="brand-logo" style="width: 38px; height: 38px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+      </a>
+      <h1 style="font-size: 2.25rem; color: var(--text-primary); margin-bottom: 0.5rem;">Personalize Your Learning Style</h1>
+      <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+        All 8 learning resources will always be generated for you. Your preferences determine which formats receive 
+        <strong>more focus</strong> in your workspace.
+      </p>
+    </div>
+
+    <!-- Preferences Selection Cards -->
+    <div class="pref-grid">
+      <!-- 1. Simple & Concise -->
+      <div class="pref-card-choice selected" data-pref="Simple & Concise">
+        <div class="pref-check-icon">✓</div>
+        <div class="pref-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Simple & Concise</h3>
+        <p style="font-size: 0.825rem; color: var(--text-secondary);">Direct bullet points, high-yield takeaways, and minimal fluff.</p>
+      </div>
+
+      <!-- 2. Detailed -->
+      <div class="pref-card-choice" data-pref="Detailed">
+        <div class="pref-check-icon">✓</div>
+        <div class="pref-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+        </div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Detailed</h3>
+        <p style="font-size: 0.825rem; color: var(--text-secondary);">Deep theoretical context, academic rigor, and real-world examples.</p>
+      </div>
+
+      <!-- 3. Step-by-Step -->
+      <div class="pref-card-choice selected" data-pref="Step-by-Step">
+        <div class="pref-check-icon">✓</div>
+        <div class="pref-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Step-by-Step</h3>
+        <p style="font-size: 0.825rem; color: var(--text-secondary);">Chronological procedural breakdowns with cause-and-effect rationale.</p>
+      </div>
+
+      <!-- 4. Visual -->
+      <div class="pref-card-choice selected" data-pref="Visual">
+        <div class="pref-check-icon">✓</div>
+        <div class="pref-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Visual</h3>
+        <p style="font-size: 0.825rem; color: var(--text-secondary);">Flowcharts, process state diagrams, and mental model sketches.</p>
+      </div>
+
+      <!-- 5. Practice -->
+      <div class="pref-card-choice selected" data-pref="Practice">
+        <div class="pref-check-icon">✓</div>
+        <div class="pref-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Practice</h3>
+        <p style="font-size: 0.825rem; color: var(--text-secondary);">Interactive flashcards, active recall questions, and adaptive quizzes.</p>
+      </div>
+
+      <!-- 6. Revision -->
+      <div class="pref-card-choice" data-pref="Revision">
+        <div class="pref-check-icon">✓</div>
+        <div class="pref-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Revision</h3>
+        <p style="font-size: 0.825rem; color: var(--text-secondary);">Executive summaries, formula cheat sheets, and comparison matrices.</p>
+      </div>
+    </div>
+
+    <!-- Additional Learning Tuning -->
+    <div class="card p-6 mb-8" style="padding: 1.75rem;">
+      <div class="grid grid-cols-2 gap-6">
+        <div class="form-group mb-0">
+          <label class="form-label" for="onboarding-primary-focus">Default Front-and-Center Format</label>
+          <select id="onboarding-primary-focus" class="form-select">
+            <option value="Visual" selected>Visual (Flowcharts & Diagrams)</option>
+            <option value="Step-by-Step">Step-by-Step Explanations</option>
+            <option value="Simple & Concise">Simplified Notes</option>
+            <option value="Practice">Interactive Flashcards & Quiz</option>
+            <option value="Detailed">Detailed Deep Dive</option>
+            <option value="Revision">Executive Summary</option>
+          </select>
+          <span class="form-hint">The tab automatically opened when you generate content.</span>
+        </div>
+
+        <div class="form-group mb-0">
+          <label class="form-label" for="onboarding-pace">Learning Pace</label>
+          <select id="onboarding-pace" class="form-select">
+            <option value="Steady" selected>Balanced & Steady</option>
+            <option value="Fast">Fast-Paced (Quick Summaries)</option>
+            <option value="Deep">Deep Explorer (Comprehensive)</option>
+          </select>
+          <span class="form-hint">Adjusts quiz difficulty and depth suggestions.</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <button id="btn-save-onboarding-prefs" class="btn btn-primary btn-lg" style="min-width: 280px;">
+        Save Preferences & Launch Workspace
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      LearnMateAuth.initPreferencesSetup();
+    });
+  </script>
+</body>
+</html>

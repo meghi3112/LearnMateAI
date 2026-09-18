@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendations - LearnMate AI</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="app-sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <h1 class="page-title">Personalized Recommendations</h1>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">AI recommendations based on your quiz performance, history, and learning preferences</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <a href="app.html" class="btn btn-primary btn-sm">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Open Learning Workspace
+          </a>
+        </div>
+      </header>
+
+      <div class="page-body">
+        
+        <!-- Summary Callout Banner -->
+        <div class="card p-6 mb-6" style="padding: 1.5rem 1.75rem; background: linear-gradient(135deg, var(--lavender-50) 0%, var(--bg-card) 100%); border-color: var(--lavender-200);">
+          <div class="flex items-center gap-4">
+            <div class="brand-logo" style="width: 44px; height: 44px; flex-shrink: 0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Adaptive AI Suggestions</h3>
+              <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                Suggestions dynamically adapt to your latest quiz results, study session intervals, and chosen cognitive learning styles (Visual & Step-by-Step).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recommendations Grid -->
+        <div class="rec-grid" id="recommendations-grid-container"></div>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/recommendations.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      LearnMateComponents.initSidebar("recommendations");
+      LearnMateRecommendations.init();
+    });
+  </script>
+</body>
+</html>

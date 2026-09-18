@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnMate AI - Learn Smarter. Learn Your Way.</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <style>
+    /* ==========================================================================
+       Polished, Modern AI Education Landing Page Styles
+       ========================================================================== */
+    :root {
+      --primary: #6C5CE7;
+      --primary-hover: #5A4BD8;
+      --primary-light: #F0EDFE;
+      --primary-border: #DDD6FE;
+      --primary-subtle: #FAF9FF;
+      --bg-page: #F8F9FD;
+      --bg-card: #FFFFFF;
+      --text-navy: #1E2238;
+      --text-muted: #586079;
+      --text-subtle: #8E96AD;
+      --border-color: #E8EBF2;
+      --shadow-sm: 0 2px 8px rgba(30, 34, 56, 0.04);
+      --shadow-md: 0 8px 24px rgba(30, 34, 56, 0.06);
+      --shadow-lg: 0 16px 36px rgba(108, 92, 231, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-navy);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Subtle background ambient glows */
+    .bg-ambient-glow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1400px;
+      height: 720px;
+      background: radial-gradient(circle at 75% 25%, rgba(108, 92, 231, 0.08) 0%, rgba(240, 237, 254, 0.35) 40%, rgba(248, 249, 253, 0) 75%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Container */
+    .landing-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       Header
+       ========================================================================== */
+    .landing-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.2s ease;
+    }
+
+    .header-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .brand-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6C5CE7, #8B5CF6);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(108, 92, 231, 0.28);
+    }
+
+    .brand-text-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .brand-tagline {
+      font-size: 0.725rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.01em;
+    }
+
+    /* Navigation links */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .header-nav a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .header-nav a:hover,
+    .header-nav a.active {
+      color: var(--primary);
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .btn-header-login {
+      padding: 0.6rem 1.35rem;
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--text-navy);
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-header-login:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .btn-header-start {
+      padding: 0.6rem 1.45rem;
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: var(--primary);
+      border: 1.5px solid var(--primary);
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(108, 92, 231, 0.25);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-header-start:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(108, 92, 231, 0.35);
+    }
+
+    /* ==========================================================================
+       Hero Section (Two-Column Layout)
+       ========================================================================== */
+    .hero-section {
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    /* Left Side */
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 0.775rem;
+      font-weight: 750;
+      letter-spacing: 0.05em;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .hero-badge-sparkle {
+      width: 14px;
+      height: 14px;
+      color: var(--primary);
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 4.2vw, 3.5rem);
+      font-weight: 850;
+      color: var(--text-navy);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title .purple-text {
+      color: var(--primary);
+      display: inline-block;
+    }
+
+    .hero-desc {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 2.25rem;
+      max-width: 540px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.25rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      padding: 0.85rem 2.25rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: var(--primary);
+      border: 1.5px solid var(--primary);
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(108, 92, 231, 0.28);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108, 92, 231, 0.38);
+    }
+
+    .btn-hero-secondary {
+      padding: 0.85rem 2.25rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-navy);
+      background: #FFFFFF;
+      border: 1.5px solid #D9DEEB;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-hero-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* Benefits row */
+    .hero-benefits {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      padding-top: 0.5rem;
+    }
+
+    .benefit-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 650;
+      color: var(--text-navy);
+    }
+
+    .benefit-icon-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Right Side (Realistic Student Visual with Floating UI Cards) */
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual-frame {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 10px;
+      border: 1px solid rgba(220, 225, 240, 0.9);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-visual-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 18px;
+      display: block;
+    }
+
+    /* Floating UI Cards */
+    .floating-ui-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 0.65rem 1rem;
+      box-shadow: 0 8px 24px rgba(30, 34, 56, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-navy);
+      white-space: nowrap;
+      z-index: 10;
+      transition: transform 0.25s ease;
+    }
+
+    .floating-ui-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(108, 92, 231, 0.18);
+    }
+
+    .float-icon-box {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    /* Floating Card Positions */
+    .card-pos-top-left {
+      top: -15px;
+      left: -20px;
+    }
+
+    .card-pos-top-right {
+      top: 35px;
+      right: -25px;
+    }
+
+    .card-pos-bottom-left {
+      bottom: 45px;
+      left: -25px;
+    }
+
+    .card-pos-bottom-right {
+      bottom: -15px;
+      right: -15px;
+    }
+
+    /* Partner Badge */
+    .partner-badge {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid var(--primary-border);
+      border-radius: 20px;
+      padding: 0.4rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.825rem;
+      font-weight: 750;
+      color: var(--primary);
+      box-shadow: 0 4px 16px rgba(108, 92, 231, 0.16);
+      z-index: 12;
+    }
+
+    .partner-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
+    /* ==========================================================================
+       Features Section (4 Rounded Feature Cards)
+       ========================================================================== */
+    .features-section {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border-color);
+      background: #FFFFFF;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 750;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text-navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2.25rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .feature-card:hover {
+      border-color: var(--primary-border);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-icon-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.35rem;
+    }
+
+    .feature-card-title {
+      font-size: 1.15rem;
+      font-weight: 750;
+      color: var(--text-navy);
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card-desc {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       About Section
+       ========================================================================== */
+    .about-section {
+      padding: 5rem 0;
+      background: var(--bg-page);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .about-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .about-pillar {
+      background: var(--bg-page);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.75rem 1.5rem;
+    }
+
+    .about-pillar h4 {
+      font-size: 1.05rem;
+      font-weight: 750;
+      color: var(--text-navy);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .about-pillar p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       Contact Section
+       ========================================================================== */
+    .contact-section {
+      padding: 4.5rem 0 5rem;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, var(--primary-light) 0%, #FFFFFF 100%);
+      border: 1.5px solid var(--primary-border);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-box h3 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-box p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.6;
+    }
+
+    .contact-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+    .landing-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      padding: 1.75rem 0;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.875rem;
+      color: var(--text-subtle);
+      font-weight: 500;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ==========================================================================
+       Responsive Media Queries
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .hero-left {
+        align-items: center;
+        text-align: center;
+      }
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-cta-row {
+        justify-content: center;
+      }
+      .hero-benefits {
+        justify-content: center;
+      }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-nav {
+        display: none; /* Hide middle links on compact mobile */
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-pos-top-left {
+        top: -10px;
+        left: -10px;
+      }
+      .card-pos-top-right {
+        top: 20px;
+        right: -10px;
+      }
+      .card-pos-bottom-left {
+        bottom: 30px;
+        left: -10px;
+      }
+      .card-pos-bottom-right {
+        bottom: -10px;
+        right: -10px;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-ambient-glow"></div>
+
+  <!-- HEADER -->
+  <header class="landing-header">
+    <div class="landing-container">
+      <div class="header-inner">
+        
+        <!-- Left: Logo, Name & Tagline -->
+        <a href="#" class="brand-group">
+          <div class="brand-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="brand-text-col">
+            <span class="brand-title">LearnMate AI</span>
+            <span class="brand-tagline">Learn Smarter. Learn Your Way.</span>
+          </div>
+        </a>
+
+        <!-- Center/Right Navigation -->
+        <nav class="header-nav">
+          <a href="#" class="active">Home</a>
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Right Buttons -->
+        <div class="header-actions">
+          <a href="login.html" class="btn-header-login">Login</a>
+          <a href="signup.html" class="btn-header-start">Get Started</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="landing-container">
+        <div class="hero-grid">
+
+          <!-- LEFT SIDE -->
+          <div class="hero-left">
+            <div class="hero-badge">
+              <svg class="hero-badge-sparkle" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <span>AI-POWERED PERSONALIZED LEARNING</span>
+            </div>
+
+            <h1 class="hero-title">
+              Learn Smarter.<br>
+              <span class="purple-text">Learn Your Way.</span>
+            </h1>
+
+            <p class="hero-desc">
+              Upload your study material or enter any topic. LearnMate AI creates personalized notes, explanations, visual learning resources, flashcards, and quizzes to help you learn effectively.
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="signup.html" class="btn-hero-primary">
+                <span>Get Started</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <a href="login.html" class="btn-hero-secondary">Login</a>
+            </div>
+
+            <!-- Four small benefits -->
+            <div class="hero-benefits">
+              <div class="benefit-item">
+                <div class="benefit-icon-circle">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span>Understand Better</span>
+              </div>
+
+              <div class="benefit-item">
+                <div class="benefit-icon-circle">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span>Learn Visually</span>
+              </div>
+
+              <div class="benefit-item">
+                <div class="benefit-icon-circle">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span>Practice Smarter</span>
+              </div>
+
+              <div class="benefit-item">
+                <div class="benefit-icon-circle">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span>Achieve More</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE: Realistic Student Visual with Floating UI Cards -->
+          <div class="hero-right">
+            <div class="hero-visual-frame">
+              <img src="assets/student_learning_hero.jpg" alt="Student learning with laptop" class="hero-visual-img">
+
+              <!-- Floating UI Card 1: Top Left -->
+              <div class="floating-ui-card card-pos-top-left">
+                <div class="float-icon-box">📄</div>
+                <span>Upload Material</span>
+              </div>
+
+              <!-- Floating UI Card 2: Top Right -->
+              <div class="floating-ui-card card-pos-top-right">
+                <div class="float-icon-box">✨</div>
+                <span>AI Generates Content</span>
+              </div>
+
+              <!-- Floating UI Card 3: Bottom Left -->
+              <div class="floating-ui-card card-pos-bottom-left">
+                <div class="float-icon-box">📝</div>
+                <span>Take Quizzes</span>
+              </div>
+
+              <!-- Floating UI Card 4: Bottom Right -->
+              <div class="floating-ui-card card-pos-bottom-right">
+                <div class="float-icon-box">📊</div>
+                <span>Track Progress</span>
+              </div>
+
+              <!-- Small Badge -->
+              <div class="partner-badge">
+                <span class="partner-badge-dot"></span>
+                <span>Your Learning Partner</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE SECTION (4 Rounded Feature Cards) -->
+    <section class="features-section" id="features">
+      <div class="landing-container">
+        
+        <div class="section-header">
+          <span class="section-badge">Comprehensive Visual Platform</span>
+          <h2 class="section-title">Everything You Need to Master Any Subject</h2>
+          <p class="section-subtitle">
+            Tailored specifically to your learning style with document-grounded AI accuracy.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <line x1="10" y1="9" x2="8" y2="9"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Smart Material Processing</h3>
+            <p class="feature-card-desc">
+              Upload PDF, DOCX or PPT files and extract learning content.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                <circle cx="12" cy="12" r="4"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">AI-Powered Learning</h3>
+            <p class="feature-card-desc">
+              Generate personalized notes, explanations, summaries, flashcards and visual resources.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Smart Assessment</h3>
+            <p class="feature-card-desc">
+              Take dynamic quizzes based on your topic and learning material.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Adaptive Recommendations</h3>
+            <p class="feature-card-desc">
+              Get personalized revision and practice recommendations based on your performance.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+      <div class="landing-container">
+        <div class="about-card">
+          <div class="section-header" style="margin-bottom: 1.5rem;">
+            <span class="section-badge">ABOUT LEARNMATAI</span>
+            <h2 class="section-title">Designed for College & Academic Excellence</h2>
+            <p class="section-subtitle">
+              LearnMate AI bridges the gap between massive textbooks, lecture slides, and individual cognitive learning styles.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-pillar">
+              <h4>
+                <span>📚</span> Grounded in Your Syllabus
+              </h4>
+              <p>
+                Uses state-of-the-art vector embeddings and OCR to retrieve answers solely from your uploaded materials without generic textbook filler.
+              </p>
+            </div>
+
+            <div class="about-pillar">
+              <h4>
+                <span>🧠</span> Multi-Format Cognitive Adapters
+              </h4>
+              <p>
+                Whether you learn best through simplified bullet points, deep theoretical proofs, visual flowcharts, or active-recall flashcards.
+              </p>
+            </div>
+
+            <div class="about-pillar">
+              <h4>
+                <span>📈</span> Continuous ML Analytics
+              </h4>
+              <p>
+                Trained machine learning models analyze your quiz accuracy, response times, and topic mastery to guide what you should study next.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="landing-container">
+        <div class="contact-box">
+          <h3>Have Questions or Feedback?</h3>
+          <p>
+            LearnMate AI is built to support students, educators, and researchers worldwide. We'd love to hear how we can improve your study experience.
+          </p>
+          <div class="contact-actions">
+            <a href="mailto:support@learnmate.ai" class="btn-hero-primary" style="padding: 0.75rem 1.75rem; font-size: 0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span>Email Support</span>
+            </a>
+            <a href="signup.html" class="btn-hero-secondary" style="padding: 0.75rem 1.75rem; font-size: 0.95rem;">
+              Create Free Account
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="landing-footer">
+    <div class="landing-container">
+      <div class="footer-inner">
+        <div class="footer-copy">
+          &copy; 2026 LearnMate AI. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

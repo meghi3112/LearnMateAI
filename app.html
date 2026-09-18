@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnMate AI - AI Learning Assistant</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/workspace.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="app-sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Header (No duplicate page title) -->
+      <header class="top-header-clean">
+        <div class="flex items-center gap-3">
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="header-actions-group">
+          <!-- Search Bar -->
+          <div class="header-search-wrapper">
+            <svg class="header-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="header-search-input" placeholder="Search topics, materials...">
+          </div>
+
+          <!-- Notification Bell -->
+          <button class="header-icon-btn" title="Notifications">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="notification-badge-dot"></span>
+          </button>
+
+          <!-- Student Profile Avatar & Name -->
+          <a href="profile.html" class="header-user-pill" title="My Profile">
+            <div class="header-avatar">M</div>
+            <span class="header-user-name">Meghana</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Home Content -->
+      <div class="page-body">
+        
+        <div class="home-workspace-grid">
+          
+          <!-- Central Chatbot-First Column -->
+          <div class="home-main-col">
+            
+            <!-- 1. Introductory Greeting Banner -->
+            <div class="home-intro-banner">
+              <div class="intro-text-block">
+                <h1 class="intro-main-heading">Hi, Meghana! 👋</h1>
+                <div class="intro-subheading">What would you like to learn today?</div>
+                <p class="intro-supporting-text">
+                  I can help you understand your topics better with simple explanations, notes, quizzes, diagrams and more.
+                </p>
+              </div>
+
+              <!-- Realistic Educational Visual (Books, Notepad, Desk Items) -->
+              <div class="intro-illustration-box">
+                <svg width="130" height="100" viewBox="0 0 130 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Bottom Book -->
+                  <rect x="15" y="70" width="100" height="18" rx="3" fill="#6C5CE7"/>
+                  <rect x="20" y="73" width="90" height="12" rx="2" fill="#8B5CF6"/>
+                  <line x1="25" y1="79" x2="105" y2="79" stroke="#DDD6FE" stroke-width="2" stroke-linecap="round"/>
+                  
+                  <!-- Middle Book -->
+                  <rect x="25" y="52" width="85" height="18" rx="3" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.5"/>
+                  <rect x="32" y="56" width="70" height="10" rx="1.5" fill="#E0E7FF"/>
+                  
+                  <!-- Top Open Notepad / Notebook -->
+                  <path d="M35 34 L80 26 L88 48 L43 56 Z" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+                  <path d="M42 37 L78 30" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M44 42 L80 35" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M46 47 L75 42" stroke="#6C5CE7" stroke-width="1.5" stroke-linecap="round"/>
+                  
+                  <!-- Bookmark ribbon -->
+                  <path d="M100 70 L100 84 L104 81 L108 84 L108 70 Z" fill="#F59E0B"/>
+                  
+                  <!-- Pen / Pencil -->
+                  <line x1="88" y1="18" x2="110" y2="44" stroke="#4F46E5" stroke-width="3.5" stroke-linecap="round"/>
+                  <polygon points="86,16 88,21 84,20" fill="#F59E0B"/>
+
+                  <!-- Desk shadow -->
+                  <ellipse cx="65" cy="94" rx="55" ry="4" fill="#0F172A" fill-opacity="0.06"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- 2. Two Primary Actions -->
+            <div class="primary-actions-grid">
+              <!-- Action 1: Upload Study Material -->
+              <div class="primary-action-card" id="btn-action-upload" role="button" tabindex="0">
+                <div class="action-icon-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="action-title">UPLOAD STUDY MATERIAL</div>
+                  <div class="action-subtitle">PDF, DOCX, PPT (Max 10MB)</div>
+                </div>
+              </div>
+
+              <!-- Action 2: Enter A Topic -->
+              <div class="primary-action-card" id="btn-action-topic" role="button" tabindex="0">
+                <div class="action-icon-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="action-title">ENTER A TOPIC</div>
+                  <div class="action-subtitle">Type any topic you want to learn</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hidden File Input for Upload Action -->
+            <input type="file" id="hidden-file-input" style="display: none;" accept=".pdf,.docx,.pptx">
+
+            <!-- 3. Suggested Prompts -->
+            <div class="suggested-prompts-section">
+              <span class="prompts-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Try asking:
+              </span>
+              <div class="prompts-pill-row">
+                <button class="prompt-pill-btn" data-prompt="Explain this topic in simple terms">Explain this topic in simple terms</button>
+                <button class="prompt-pill-btn" data-prompt="Give me a summary">Give me a summary</button>
+                <button class="prompt-pill-btn" data-prompt="Create flashcards">Create flashcards</button>
+                <button class="prompt-pill-btn" data-prompt="Generate a quiz">Generate a quiz</button>
+                <button class="prompt-pill-btn" data-prompt="Draw a flowchart">Draw a flowchart</button>
+                <button class="prompt-pill-btn" data-prompt="Suggest important questions">Suggest important questions</button>
+              </div>
+            </div>
+
+            <!-- 4. Central Chatbot Area -->
+            <div class="chat-conversation-card">
+              <!-- Top bar of the conversation card -->
+              <div class="chat-card-topbar">
+                <div class="chat-assistant-badge">
+                  <div class="chat-ai-avatar" style="width: 30px; height: 30px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">LearnMate AI Assistant</div>
+                    <div class="flex items-center gap-1" style="font-size: 0.75rem; color: var(--text-muted);">
+                      <span class="status-dot-pulse"></span>
+                      <span>Online & Ready</span>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="btn btn-ghost btn-sm" id="btn-clear-chat" title="Clear chat conversation" style="font-size: 0.8rem; color: var(--text-muted);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  Clear Chat
+                </button>
+              </div>
+
+              <!-- Message History Scroll Area -->
+              <div class="chat-messages-container" id="chat-messages-stream">
+                <!-- Initial AI Message -->
+                <div class="chat-message-row assistant">
+                  <div class="chat-ai-avatar">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                  </div>
+                  <div class="chat-bubble-content">
+                    <p style="margin-bottom: 0.65rem;">Hi! I'm LearnMate AI. 😊</p>
+                    <p>Upload a study material or enter a topic, and I'll create personalized learning resources for you. What would you like to do?</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chat Input Form -->
+              <div class="chat-input-bar-container">
+                <form id="home-chat-form" class="chat-input-box">
+                  <button type="button" class="chat-attach-btn" id="btn-chat-attach" title="Attach PDF, DOCX, or PPT">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                  </button>
+                  <input 
+                    type="text" 
+                    id="home-chat-input" 
+                    class="chat-input-field" 
+                    placeholder="Ask me anything about your topic..."
+                    autocomplete="off"
+                  >
+                  <button type="submit" class="chat-send-btn" id="btn-chat-submit" title="Send Message">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column Cards -->
+          <div class="home-right-panel">
+            
+            <!-- Card 1: Your Learning Preferences -->
+            <div class="side-widget-card">
+              <div class="side-widget-header">
+                <h3 class="side-widget-title">Your Learning Preferences</h3>
+                <a href="preferences.html" class="side-widget-action">Edit</a>
+              </div>
+              <div class="pref-tags-list">
+                <div class="pref-tag-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  <span>Visual Learning</span>
+                </div>
+                <div class="pref-tag-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Step-by-Step</span>
+                </div>
+                <div class="pref-tag-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>Practice & Quizzes</span>
+                </div>
+              </div>
+              <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.4;">
+                Resources adapt to emphasize these styles.
+              </div>
+            </div>
+
+            <!-- Card 2: Recent Topics -->
+            <div class="side-widget-card">
+              <div class="side-widget-header">
+                <h3 class="side-widget-title">Recent Topics</h3>
+                <a href="history.html" class="side-widget-action">View All</a>
+              </div>
+              <div class="recent-topics-list">
+                <div class="recent-topic-item" data-topic="CPU Scheduling">
+                  <div class="recent-topic-name">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>CPU Scheduling</span>
+                  </div>
+                  <span class="recent-topic-date">Yesterday, 4:20 PM</span>
+                </div>
+
+                <div class="recent-topic-item" data-topic="Binary Search Trees">
+                  <div class="recent-topic-name">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Binary Search Trees</span>
+                  </div>
+                  <span class="recent-topic-date">2 days ago</span>
+                </div>
+
+                <div class="recent-topic-item" data-topic="Database Normalization">
+                  <div class="recent-topic-name">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Database Normalization</span>
+                  </div>
+                  <span class="recent-topic-date">4 days ago</span>
+                </div>
+
+                <div class="recent-topic-item" data-topic="Cellular Respiration">
+                  <div class="recent-topic-name">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Cellular Respiration</span>
+                  </div>
+                  <span class="recent-topic-date">Sep 8, 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Quick Actions -->
+            <div class="side-widget-card">
+              <h3 class="side-widget-title" style="margin-bottom: 0.85rem;">Quick Actions</h3>
+              <div class="quick-actions-grid">
+                <a href="materials.html" class="quick-action-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  <span>Upload Material</span>
+                </a>
+                <a href="history.html" class="quick-action-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>View History</span>
+                </a>
+                <a href="performance.html" class="quick-action-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  <span>Performance</span>
+                </a>
+                <a href="recommendations.html" class="quick-action-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span>Recommendations</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Enter Topic Modal -->
+  <div class="modal-overlay" id="topic-input-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-size: 1.2rem;">Enter a Study Topic</h3>
+        <button class="modal-close" id="btn-close-topic-modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="modal-topic-input">What topic do you want to learn?</label>
+          <input type="text" id="modal-topic-input" class="form-input" placeholder="e.g. CPU Scheduling Algorithms, Binary Search Trees, Photosynthesis...">
+        </div>
+        <div class="quick-topics" style="margin-top: 0.5rem;">
+          <span class="quick-label">Suggestions:</span>
+          <button type="button" class="quick-chip modal-suggestion" data-topic="CPU Scheduling">CPU Scheduling</button>
+          <button type="button" class="quick-chip modal-suggestion" data-topic="Binary Search Trees">Binary Trees</button>
+          <button type="button" class="quick-chip modal-suggestion" data-topic="Database Normalization">Database Normalization</button>
+          <button type="button" class="quick-chip modal-suggestion" data-topic="Cellular Respiration">Cellular Respiration</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline btn-sm" id="btn-cancel-topic-modal">Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm" id="btn-start-topic-session">Start Learning</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/workspace.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      LearnMateComponents.initSidebar("home");
+      LearnMateWorkspace.init();
+    });
+  </script>
+</body>
+</html>

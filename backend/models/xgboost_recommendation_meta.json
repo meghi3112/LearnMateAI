@@ -1,0 +1,24 @@
+{
+  "trained_at": "2026-09-17T19:38:40.500862",
+  "training_samples": 33,
+  "num_classes": 4,
+  "classes_present": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "features": [
+    "latest_quiz_score",
+    "average_quiz_score",
+    "attempt_count",
+    "completion_percentage",
+    "performance_level_encoded",
+    "topic_history_length",
+    "days_since_last_attempt",
+    "pref_visual",
+    "pref_step_by_step",
+    "pref_quick_summary",
+    "pref_flashcards"
+  ]
+}

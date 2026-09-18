@@ -1,0 +1,79 @@
+:root {
+  /* Brand Colors */
+  --primary: #6C5CE7;
+  --primary-hover: #5A4BD8;
+  --primary-active: #4B3CC7;
+  --primary-light: #F0EDFE;
+  --primary-subtle: #FAF9FF;
+  --primary-border: #DDD6FE;
+  --primary-glow: rgba(108, 92, 231, 0.22);
+
+  /* Lavender & Blue Accents */
+  --lavender-50: #F8F7FF;
+  --lavender-100: #F0EDFE;
+  --lavender-200: #E2DCFD;
+  --lavender-300: #C9BFFB;
+  --lavender-500: #8B5CF6;
+  --blue-soft: #EEF4FF;
+  --blue-accent: #3B82F6;
+
+  /* Neutrals & Surfaces */
+  --bg-app: #F8F9FD;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FCFCFF;
+  --bg-muted: #F1F3F9;
+  --bg-input: #FFFFFF;
+  --border-subtle: #E8EBF2;
+  --border-card: #E5E7EB;
+  --border-focus: #A78BFA;
+
+  /* Typography Colors */
+  --text-primary: #1E2238;
+  --text-secondary: #586079;
+  --text-muted: #8E96AD;
+  --text-inverse: #FFFFFF;
+  --text-purple: #6C5CE7;
+
+  /* Status Colors */
+  --success: #10B981;
+  --success-bg: #ECFDF5;
+  --success-border: #A7F3D0;
+  --warning: #F59E0B;
+  --warning-bg: #FFFBEB;
+  --warning-border: #FDE68A;
+  --danger: #EF4444;
+  --danger-bg: #FEF2F2;
+  --danger-border: #FECACA;
+  --info: #0284C7;
+  --info-bg: #F0F9FF;
+  --info-border: #BAE6FD;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 6px 16px -2px rgba(108, 92, 231, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 14px 28px -4px rgba(108, 92, 231, 0.10), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 35px -6px rgba(108, 92, 231, 0.16);
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.35s ease;
+
+  /* Sidebar */
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 72px;
+  --header-height: 64px;
+}

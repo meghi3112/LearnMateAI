@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - LearnMate AI</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="app-sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <h1 class="page-title">My Profile</h1>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Manage your personal account and learning preferences</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn btn-primary btn-sm" id="btn-open-edit-profile">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+            Edit Profile
+          </button>
+        </div>
+      </header>
+
+      <div class="page-body">
+        
+        <!-- Profile Banner Card -->
+        <div class="profile-banner-card">
+          <div class="flex items-center gap-6">
+            <div class="profile-avatar-large" id="profile-display-avatar">AM</div>
+            <div>
+              <h2 style="font-size: 1.75rem; margin-bottom: 0.25rem;" id="profile-display-name">Alex Morgan</h2>
+              <p style="font-size: 0.95rem; color: var(--text-secondary);" id="profile-display-email">alex.morgan@learnmate.edu</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="badge badge-purple">Student</span>
+                <span class="badge badge-blue">Active Learner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2">
+            <button class="btn btn-outline btn-sm" onclick="document.getElementById('avatar-file-picker').click()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              Change Photo
+            </button>
+            <input type="file" id="avatar-file-picker" style="display: none;" accept="image/*">
+          </div>
+        </div>
+
+        <!-- Activity Stats Grid -->
+        <div class="profile-stats-grid">
+          <div class="stat-box">
+            <div class="stat-value" id="profile-stat-study-time">0h</div>
+            <div class="stat-label">Total Study Time</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="profile-stat-sessions-count">0</div>
+            <div class="stat-label">Sessions Completed</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="profile-stat-quizzes-count">0</div>
+            <div class="stat-label">Quizzes Attempted</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="profile-stat-avg-score" style="color: var(--success);">0%</div>
+            <div class="stat-label">Average Quiz Score</div>
+          </div>
+        </div>
+
+        <!-- Learning Preferences Card -->
+        <div class="card p-6 mb-6" style="padding: 2rem;">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Active Learning Preferences</h3>
+              <p style="font-size: 0.875rem;">These preferences personalize the 8 resources generated for your study sessions.</p>
+            </div>
+            <a href="preferences.html" class="btn btn-secondary btn-sm">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Modify Preferences
+            </a>
+          </div>
+
+          <div class="flex items-center gap-3 flex-wrap mb-4" id="profile-prefs-list">
+            <span class="badge badge-purple" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">★ Primary Focus: Visual</span>
+            <span class="badge badge-blue" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">Step-by-Step</span>
+          </div>
+
+          <div class="p-4" style="background: var(--lavender-50); border-radius: var(--radius-lg); border: 1px solid var(--lavender-200); font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+            <strong>How your preference works:</strong> Whenever you enter a topic or upload notes in the 
+            <a href="app.html" style="font-weight: 600; color: var(--primary);">AI Learning Workspace</a>, all 8 formats are generated, but 
+            the workspace highlights your visual flowcharts and step-by-step traces first.
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal-overlay" id="edit-profile-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-size: 1.2rem;">Edit Student Profile</h3>
+        <button class="modal-close" id="btn-close-edit-modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="edit-name-input">Full Name</label>
+          <input type="text" id="edit-name-input" class="form-input" value="Alex Morgan">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="edit-email-input">Email Address</label>
+          <input type="email" id="edit-email-input" class="form-input" value="alex.morgan@learnmate.edu">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline btn-sm" id="btn-cancel-edit-modal">Cancel</button>
+        <button class="btn btn-primary btn-sm" id="btn-save-edit-profile">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      LearnMateComponents.initSidebar("profile");
+
+      const nameEl = document.getElementById("profile-display-name");
+      const emailEl = document.getElementById("profile-display-email");
+      const avatarEl = document.getElementById("profile-display-avatar");
+      const editName = document.getElementById("edit-name-input");
+      const editEmail = document.getElementById("edit-email-input");
+      const studyTimeEl = document.getElementById("profile-stat-study-time");
+      const sessionsEl = document.getElementById("profile-stat-sessions-count");
+      const quizzesEl = document.getElementById("profile-stat-quizzes-count");
+      const avgScoreEl = document.getElementById("profile-stat-avg-score");
+      const prefsListEl = document.getElementById("profile-prefs-list");
+
+      async function refreshProfile() {
+        let user = (typeof LearnMateAPI !== "undefined" && LearnMateAPI.getUser()) || LearnMateData.currentUser;
+        
+        if (typeof LearnMateAPI !== "undefined") {
+          try {
+            const meRes = await LearnMateAPI.getMe();
+            if (meRes.success && meRes.data && meRes.data.user) {
+              user = meRes.data.user;
+            }
+          } catch (e) {
+            console.warn("Could not fetch remote user details:", e);
+          }
+        }
+
+        if (user) {
+          const displayName = user.full_name || user.fullName || "Student";
+          const displayEmail = user.email || "student@learnmate.edu";
+          const displayAvatar = user.avatar_initial || user.avatarInitial || displayName.slice(0, 2).toUpperCase();
+
+          if (nameEl) nameEl.textContent = displayName;
+          if (emailEl) emailEl.textContent = displayEmail;
+          if (avatarEl) avatarEl.textContent = displayAvatar;
+          if (editName) editName.value = displayName;
+          if (editEmail) editEmail.value = displayEmail;
+
+          // Stats
+          if (user.stats) {
+            const sc = user.stats.sessions_count || 0;
+            const qc = user.stats.quizzes_count || 0;
+            if (sessionsEl) sessionsEl.textContent = sc;
+            if (studyTimeEl) studyTimeEl.textContent = `${(sc * 0.75).toFixed(1)}h`;
+            if (quizzesEl) quizzesEl.textContent = qc;
+            if (avgScoreEl) avgScoreEl.textContent = user.stats.average_score || "0.0%";
+          }
+
+          // Preferences
+          if (prefsListEl && user.preferences && user.preferences.length > 0) {
+            const primary = user.primary_focus || user.preferences[0];
+            prefsListEl.innerHTML = user.preferences.map(p => `
+              <span class="badge ${p === primary ? 'badge-purple' : 'badge-blue'}" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">
+                ${p === primary ? `★ Primary Focus: ${p}` : p}
+              </span>
+            `).join("");
+          }
+        }
+      }
+
+      await refreshProfile();
+
+      // Modal handling
+      const modal = document.getElementById("edit-profile-modal");
+      const openBtn = document.getElementById("btn-open-edit-profile");
+      const closeBtn = document.getElementById("btn-close-edit-modal");
+      const cancelBtn = document.getElementById("btn-cancel-edit-modal");
+      const saveBtn = document.getElementById("btn-save-edit-profile");
+
+      const closeModal = () => modal.classList.remove("active");
+      if (openBtn) openBtn.addEventListener("click", () => modal.classList.add("active"));
+      if (closeBtn) closeBtn.addEventListener("click", closeModal);
+      if (cancelBtn) cancelBtn.addEventListener("click", closeModal);
+
+      if (saveBtn) {
+        saveBtn.addEventListener("click", async () => {
+          const name = editName ? editName.value.trim() : "";
+          if (!name) {
+            LearnMateComponents.showToast("Full name cannot be empty.", "warning");
+            return;
+          }
+
+          saveBtn.disabled = true;
+          saveBtn.style.opacity = "0.7";
+          LearnMateComponents.showToast("Saving profile updates...", "info");
+
+          try {
+            const res = await LearnMateAPI.updateProfile({ full_name: name });
+            if (res.success) {
+              LearnMateComponents.showToast("Profile updated successfully!", "success");
+              closeModal();
+              await refreshProfile();
+              LearnMateComponents.initSidebar("profile");
+            } else {
+              LearnMateComponents.showToast(res.message || "Failed to update profile.", "danger");
+            }
+          } catch (e) {
+            console.error("Profile save error:", e);
+            LearnMateComponents.showToast("Network error updating profile.", "danger");
+          } finally {
+            saveBtn.disabled = false;
+            saveBtn.style.opacity = "1";
+          }
+        });
+      }
+
+      const photoInput = document.getElementById("avatar-file-picker");
+      if (photoInput) {
+        photoInput.addEventListener("change", () => {
+          LearnMateComponents.showToast("Profile photo updated!", "success");
+        });
+      }
+    });
+  </script>
+</body>
+</html>

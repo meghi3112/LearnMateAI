@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Analytics - LearnMate AI</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="app-sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <h1 class="page-title">Performance Analytics</h1>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Track your topic mastery, quiz trendlines, and improvement opportunities</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <a href="recommendations.html" class="btn btn-secondary btn-sm">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            View Recommendations
+          </a>
+        </div>
+      </header>
+
+      <div class="page-body">
+        
+        <!-- 4 KPI Summary Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+            </div>
+            <div>
+              <div class="stat-value" id="kpi-topics-count">18</div>
+              <div class="stat-label">Topics Studied</div>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: var(--blue-soft); color: var(--blue-accent);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div>
+              <div class="stat-value" id="kpi-quizzes-count">24</div>
+              <div class="stat-label">Quizzes Attempted</div>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: var(--success-bg); color: var(--success);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <div>
+              <div class="stat-value" id="kpi-avg-score" style="color: var(--success);">78.5%</div>
+              <div class="stat-label">Average Score</div>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: var(--lavender-100); color: var(--primary);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <div class="stat-value" id="kpi-overall-progress">84%</div>
+              <div class="stat-label">Overall Mastery</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Analytics Row (SVG Score Trend & Topic Bar Breakdown) -->
+        <div class="charts-row">
+          <div class="chart-card">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Quiz Score Trend</h3>
+                <p style="font-size: 0.8rem;">Performance over your recent study sessions</p>
+              </div>
+              <span class="badge badge-purple">+7% Improvement</span>
+            </div>
+            <div id="chart-score-trend" style="height: 220px; width: 100%;"></div>
+          </div>
+
+          <div class="chart-card">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Topic-Wise Performance</h3>
+                <p style="font-size: 0.8rem;">Comparative scores by subject topic</p>
+              </div>
+              <span class="badge badge-blue">5 Core Topics</span>
+            </div>
+            <div id="chart-topic-bars"></div>
+          </div>
+        </div>
+
+        <!-- Strong vs Needs Improvement Row -->
+        <div class="grid grid-cols-2 gap-6">
+          <div class="card p-6" style="padding: 1.75rem;">
+            <div class="flex items-center gap-2 mb-4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <h3 style="font-size: 1.15rem;">Strong Topics (≥ 80%)</h3>
+            </div>
+            <p style="font-size: 0.85rem; margin-bottom: 1.25rem;">Topics where you have demonstrated high retention and conceptual accuracy.</p>
+            <div id="strong-topics-list"></div>
+          </div>
+
+          <div class="card p-6" style="padding: 1.75rem;">
+            <div class="flex items-center gap-2 mb-4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <h3 style="font-size: 1.15rem;">Topics Needing Improvement (&lt; 70%)</h3>
+            </div>
+            <p style="font-size: 0.85rem; margin-bottom: 1.25rem;">Topics recommended for revision to boost your overall academic foundation.</p>
+            <div id="weak-topics-list"></div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/performance.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      LearnMateComponents.initSidebar("performance");
+      LearnMatePerformance.init();
+    });
+  </script>
+</body>
+</html>

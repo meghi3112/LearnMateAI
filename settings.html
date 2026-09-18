@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - LearnMate AI</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="app-sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <h1 class="page-title">Application Settings</h1>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Manage your account, learning preferences, notifications, and privacy</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-body">
+        
+        <div class="settings-layout">
+          <!-- Categories Nav Sidebar -->
+          <div class="settings-nav-card">
+            <button class="settings-nav-item active" data-tab="account">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Account
+            </button>
+            <button class="settings-nav-item" data-tab="preferences">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Learning Preferences
+            </button>
+            <button class="settings-nav-item" data-tab="notifications">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+              Notifications
+            </button>
+            <button class="settings-nav-item" data-tab="appearance">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+              Appearance
+            </button>
+            <button class="settings-nav-item" data-tab="privacy">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Privacy & Security
+            </button>
+            <button class="settings-nav-item" data-tab="help">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Help & Support
+            </button>
+          </div>
+
+          <!-- Tab Panels Container -->
+          <div class="settings-content-card">
+            
+            <!-- 1. Account Settings -->
+            <div class="settings-tab-panel active" id="tab-account">
+              <h2 style="font-size: 1.35rem; margin-bottom: 0.35rem;">Account Information</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+                Update your student name, email, avatar, and password.
+              </p>
+
+              <div class="flex items-center gap-4 mb-6 pb-6" style="border-bottom: 1px solid var(--border-subtle);">
+                <div class="profile-avatar-large" style="width: 68px; height: 68px; font-size: 1.65rem;">AM</div>
+                <div>
+                  <button class="btn btn-outline btn-sm" onclick="document.getElementById('settings-avatar-input').click()">
+                    Change Avatar Photo
+                  </button>
+                  <input type="file" id="settings-avatar-input" style="display: none;" accept="image/*">
+                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem;">JPG or PNG up to 5MB.</div>
+                </div>
+              </div>
+
+              <form id="form-account-info" class="mb-8">
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="form-group mb-0">
+                    <label class="form-label" for="settings-full-name">Full Name</label>
+                    <input type="text" id="settings-full-name" class="form-input" value="Alex Morgan">
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label" for="settings-email">Email Address</label>
+                    <input type="email" id="settings-email" class="form-input" value="alex.morgan@learnmate.edu">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm" id="btn-save-account">Save Account Changes</button>
+              </form>
+
+              <!-- Change Password Section -->
+              <h3 style="font-size: 1.15rem; margin-bottom: 0.25rem; border-top: 1px solid var(--border-subtle); padding-top: 1.5rem;">
+                Change Password
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Ensure your account uses a secure password.
+              </p>
+
+              <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="form-group mb-0">
+                  <label class="form-label" for="current-pass">Current Password</label>
+                  <input type="password" id="current-pass" class="form-input" placeholder="••••••••">
+                </div>
+                <div class="form-group mb-0">
+                  <label class="form-label" for="new-pass">New Password</label>
+                  <input type="password" id="new-pass" class="form-input" placeholder="••••••••">
+                </div>
+                <div class="form-group mb-0">
+                  <label class="form-label" for="conf-new-pass">Confirm Password</label>
+                  <input type="password" id="conf-new-pass" class="form-input" placeholder="••••••••">
+                </div>
+              </div>
+              <button class="btn btn-secondary btn-sm mb-8" id="btn-change-password">Update Password</button>
+
+              <!-- Danger Zone -->
+              <div style="border-top: 1px solid var(--danger-border); padding-top: 1.5rem; margin-top: 1.5rem;">
+                <h3 style="font-size: 1.15rem; color: var(--danger); margin-bottom: 0.25rem;">Danger Zone</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                  Sign out of your active session or permanently delete your account.
+                </p>
+                <div class="flex items-center gap-3">
+                  <button class="btn btn-outline btn-sm" id="btn-logout">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Log Out
+                  </button>
+                  <button class="btn btn-danger btn-sm" id="btn-delete-account">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+                    Delete Account
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Learning Preferences Settings -->
+            <div class="settings-tab-panel" id="tab-preferences">
+              <h2 style="font-size: 1.35rem; margin-bottom: 0.35rem;">Learning Preferences</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+                Customize how LearnMate AI weights your 8 generated resources.
+              </p>
+
+              <div class="form-group mb-4">
+                <label class="form-label">Active Styles</label>
+                <div class="flex flex-col gap-2 mt-2" id="settings-prefs-checkboxes">
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="form-checkbox setting-pref-cb" data-pref="Visual" checked>
+                    <span><strong>Visual:</strong> Prioritize flowcharts, process maps, and diagrams.</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="form-checkbox setting-pref-cb" data-pref="Step-by-Step" checked>
+                    <span><strong>Step-by-Step:</strong> Highlight sequential algorithmic traces and procedures.</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="form-checkbox setting-pref-cb" data-pref="Practice" checked>
+                    <span><strong>Practice:</strong> Emphasize interactive flashcards and question sets.</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="form-checkbox setting-pref-cb" data-pref="Simple & Concise">
+                    <span><strong>Simple & Concise:</strong> Generate shorter high-yield bullet notes.</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="form-checkbox setting-pref-cb" data-pref="Detailed">
+                    <span><strong>Detailed:</strong> In-depth theoretical background.</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group mb-6">
+                <label class="form-label" for="settings-default-tab">Default Opened Workspace Tab</label>
+                <select id="settings-default-tab" class="form-select" style="max-width: 340px;">
+                  <option value="notes">Simplified Notes</option>
+                  <option value="detailed">Detailed Explanations</option>
+                  <option value="steps">Step-by-Step</option>
+                  <option value="diagram" selected>Diagrams / Flowchart</option>
+                  <option value="flashcards">Flashcards</option>
+                  <option value="quiz">Quiz</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary btn-sm" id="btn-save-settings-prefs">Save Preference Changes</button>
+            </div>
+
+            <!-- 3. Notifications Settings -->
+            <div class="settings-tab-panel" id="tab-notifications">
+              <h2 style="font-size: 1.35rem; margin-bottom: 0.35rem;">Notifications</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+                Configure automated study reminders and performance updates.
+              </p>
+
+              <div class="flex flex-col gap-3">
+                <label class="checkbox-label">
+                  <input type="checkbox" class="form-checkbox" checked>
+                  <span>Spaced repetition revision reminders</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" class="form-checkbox" checked>
+                  <span>Weekly mastery summary and score reports</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" class="form-checkbox">
+                  <span>Product updates and new learning generator features</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 4. Appearance Settings -->
+            <div class="settings-tab-panel" id="tab-appearance">
+              <h2 style="font-size: 1.35rem; margin-bottom: 0.35rem;">Appearance & Theme</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+                Customize the interface palette and font size.
+              </p>
+
+              <div class="form-group mb-4">
+                <label class="form-label">Theme Mode</label>
+                <div class="flex gap-3 mt-2">
+                  <label class="radio-label">
+                    <input type="radio" name="theme-mode" class="form-radio" checked>
+                    <span>Clean Light Mode (Default)</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="theme-mode" class="form-radio">
+                    <span>Soft Lavender Contrast</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Privacy & Security -->
+            <div class="settings-tab-panel" id="tab-privacy">
+              <h2 style="font-size: 1.35rem; margin-bottom: 0.35rem;">Privacy & Security</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+                Manage your data retention and privacy preferences.
+              </p>
+
+              <div class="flex flex-col gap-4">
+                <button class="btn btn-outline btn-sm" style="width: fit-content;" onclick="LearnMateComponents.showToast('Learning data archive export initiated.', 'info')">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Export All Learning Data (JSON)
+                </button>
+                <button class="btn btn-danger btn-sm" style="width: fit-content;" onclick="LearnMateComponents.showToast('Learning history cleared.', 'warning')">
+                  Clear Session History
+                </button>
+              </div>
+            </div>
+
+            <!-- 6. Help & Support -->
+            <div class="settings-tab-panel" id="tab-help">
+              <h2 style="font-size: 1.35rem; margin-bottom: 0.35rem;">Help & Support</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+                Frequently asked questions about LearnMate AI.
+              </p>
+
+              <div class="qa-accordion">
+                <div class="qa-item active">
+                  <button class="qa-question-btn">
+                    <span>Are all 8 formats generated for every topic?</span>
+                  </button>
+                  <div class="qa-answer-panel" style="display: block;">
+                    Yes! For every student and every topic, simplified notes, detailed explanations, step-by-step traces, summaries, flashcards, Q&As, diagrams, and quizzes are all generated.
+                  </div>
+                </div>
+                <div class="qa-item">
+                  <button class="qa-question-btn">
+                    <span>How do learning preferences influence the output?</span>
+                  </button>
+                  <div class="qa-answer-panel">
+                    Preferences highlight and prioritize the resources that best match your style (such as Visual, Step-by-Step, or Practice), without restricting access to the remaining formats.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/settings.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      LearnMateComponents.initSidebar("settings");
+      LearnMateSettings.init();
+    });
+  </script>
+</body>
+</html>
